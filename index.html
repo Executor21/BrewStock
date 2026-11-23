@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BrewStock — Λήψη εφαρμογής Android</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #14b8a6;
+      --accent-hover: #0d9488;
+      --border: #334155;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    .card {
+      width: 100%;
+      max-width: 480px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 24px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    }
+    .logo {
+      width: 96px;
+      height: 96px;
+      object-fit: contain;
+      border-radius: 22px;
+      background: #0f172a;
+      padding: 8px;
+      border: 1px solid var(--border);
+      margin-bottom: 14px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.6rem;
+    }
+    .badge {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      background: rgba(20, 184, 166, 0.15);
+      color: #5eead4;
+      border: 1px solid rgba(20, 184, 166, 0.35);
+    }
+    p {
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 14px 0 22px;
+      font-size: 0.95rem;
+    }
+    .btn-download {
+      display: inline-block;
+      width: 100%;
+      padding: 14px 20px;
+      border-radius: 12px;
+      background: var(--accent);
+      color: #042f2e;
+      font-weight: 800;
+      font-size: 1.05rem;
+      text-decoration: none;
+      transition: background 0.15s ease, transform 0.05s ease;
+    }
+    .btn-download:hover {
+      background: var(--accent-hover);
+      color: #ffffff;
+    }
+    .btn-download:active {
+      transform: scale(0.99);
+    }
+    .note {
+      margin-top: 18px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-align: left;
+      background: rgba(15, 23, 42, 0.55);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+    .note strong { color: var(--text); }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <img src="logo.png" alt="Λογότυπο BrewStock" class="logo">
+    <h1>BrewStock</h1>
+    <span class="badge">Android APK · Έκδοση 7.0.4 · Offline</span>
+    <p>
+      Εφαρμογή απογραφής προϊόντων με τοπική αποθήκευση, σάρωση barcode/αριθμών
+      και συγχρονισμό Excel / CSV.
+    </p>
+
+    <!-- Αντικατάστησε το USERNAME και το REPO με τα δικά σου -->
+    <a class="btn-download" href="https://github.com/Executor21/BrewStock/releases/latest">
+      ⬇ Κατέβασμα εφαρμογής (.APK)
+    </a>
+
+    <div class="note">
+      <strong>Οδηγίες εγκατάστασης σε Android:</strong><br>
+      1. Κατέβασε το αρχείο <code>.apk</code>.<br>
+      2. Άνοιξέ το από τις ειδοποιήσεις ή τα «Ληφθέντα».<br>
+      3. Αν ζητηθεί, επίτρεψε την «Εγκατάσταση άγνωστων εφαρμογών» από τον browser σου.
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BrewStock — Λήψη εφαρμογής Android & Οδηγίες</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #14b8a6;
+      --accent-hover: #0d9488;
+      --border: #334155;
+      --badge-bg: rgba(20, 184, 166, 0.15);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 36px 16px;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .container {
+      width: 100%;
+      max-width: 960px;
+    }
+    .hero-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 24px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      margin-bottom: 32px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .logo {
+      width: 96px;
+      height: 96px;
+      object-fit: contain;
+      border-radius: 22px;
+      background: #0f172a;
+      padding: 8px;
+      border: 1px solid var(--border);
+      margin-bottom: 14px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.9rem;
+    }
+    .badge {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 4px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      background: var(--badge-bg);
+      color: #5eead4;
+      border: 1px solid rgba(20, 184, 166, 0.35);
+    }
+    .hero-desc {
+      color: var(--muted);
+      margin: 14px 0 24px;
+      font-size: 0.98rem;
+    }
+    .btn-download {
+      display: inline-block;
+      width: 100%;
+      padding: 15px 20px;
+      border-radius: 12px;
+      background: var(--accent);
+      color: #042f2e;
+      font-weight: 800;
+      font-size: 1.05rem;
+      text-decoration: none;
+      transition: background 0.15s ease, transform 0.05s ease;
+    }
+    .btn-download:hover {
+      background: var(--accent-hover);
+      color: #ffffff;
+    }
+    .btn-download:active {
+      transform: scale(0.99);
+    }
+    .note {
+      margin-top: 20px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: left;
+      background: rgba(15, 23, 42, 0.55);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+    .note strong { color: var(--text); }
+    .note code {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #5eead4;
+    }
+    .section-title {
+      font-size: 1.5rem;
+      text-align: center;
+      margin: 0 0 24px;
+      color: var(--text);
+    }
+    .section-title span {
+      color: var(--accent);
+    }
+    .guide-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+    @media (max-width: 768px) {
+      .guide-card {
+        grid-template-columns: 1fr;
+      }
+    }
+    .screenshot-wrapper {
+      background: #0f172a;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 10px;
+      text-align: center;
+    }
+    .screenshot-wrapper img {
+      width: 100%;
+      max-width: 280px;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+      margin: 0 auto;
+    }
+    .guide-content h3 {
+      margin: 0 0 16px;
+      font-size: 1.25rem;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+    }
+    .step-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .step-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .step-list li:last-child {
+      margin-bottom: 0;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #ef4444;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+    .step-list strong {
+      color: var(--text);
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-top: 24px;
+      padding-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Αρχική Κάρτα / Download -->
+    <main class="hero-card">
+      <img src="logo.png" alt="Λογότυπο BrewStock" class="logo">
+      <h1>BrewStock</h1>
+      <span class="badge">Android APK · Έκδοση 7.0.4 · Offline</span>
+      <p class="hero-desc">
+        Εφαρμογή απογραφής προϊόντων με τοπική αποθήκευση, σάρωση barcode/αριθμών
+        και συγχρονισμό Excel / CSV.
+      </p>
+
+      <a class="btn-download" href="https://github.com/Executor21/BrewStock/releases/download/BrewStock/brewstock7.0.4.apk">
+        ⬇ Κατέβασμα εφαρμογής (.APK)
+      </a>
+
+      <div class="note">
+        <strong>Οδηγίες εγκατάστασης σε Android:</strong><br>
+        1. Κατέβασε το αρχείο <code>.apk</code>.<br>
+        2. Άνοιξέ το από τις ειδοποιήσεις ή τα «Ληφθέντα».<br>
+        3. Αν ζητηθεί, επίτρεψε την «Εγκατάσταση άγνωστων εφαρμογών» από τον browser σου.
+      </div>
+    </main>
+
+    <h2 class="section-title">📖 Αναλυτικός Οδηγός Χρήσης & <span>Screenshots</span></h2>
+
+    <!-- Βήμα 1: Εισαγωγή Αρχείου -->
+    <section class="guide-card">
+      <div class="screenshot-wrapper">
+        <img src="Screenshot_1.png" alt="Οθόνη Εισαγωγής Αρχείου">
+      </div>
+      <div class="guide-content">
+        <h3>1. Εισαγωγή Αρχείου (.XLSX / .CSV)</h3>
+        <ul class="step-list">
+          <li>
+            <span class="step-num">1</span>
+            <div><strong>Καρτέλα CSV / Εισαγωγή:</strong> Η κεντρική ενότητα που αναλαμβάνει την ανάγνωση και επεξεργασία εξωτερικών αρχείων δεδομένων.</div>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <div><strong>Εισαγωγή από Excel (.xlsx):</strong> Κουμπί φόρτωσης αρχείου τύπου Excel, το οποίο αναγνωρίζει αυτόματα τις κεφαλίδες (ID, Barcode, Brand, Ομάδα, Περιγραφή κ.λπ.).</div>
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <div><strong>Επιβεβαίωση και εισαγωγή:</strong> Ολοκληρώνει οριστικά την εισαγωγή των δεδομένων στη βάση μετά τον επιτυχή έλεγχο μορφής.</div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Βήμα 2: Συγχρονισμός Δεδομένων -->
+    <section class="guide-card">
+      <div class="screenshot-wrapper">
+        <img src="Screenshot_2.png" alt="Οθόνη Συγχρονισμού Δεδομένων">
+      </div>
+      <div class="guide-content">
+        <h3>2. Συγχρονισμός Δεδομένων</h3>
+        <ul class="step-list">
+          <li>
+            <span class="step-num">1</span>
+            <div><strong>Συγχρονισμός με Excel (.xlsx):</strong> Λειτουργία σύγκρισης της υπάρχουσας βάσης με ένα νέο αρχείο για τον εντοπισμό αλλαγών.</div>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <div><strong>Πίνακας ελέγχου (Προεπισκόπηση):</strong> Δείχνει αναλυτικά ποιες εγγραφές θα προστεθούν ως <em>Νέα ενεργά</em>, ποιες παραμένουν ενεργές και ποιες θα <em>απενεργοποιηθούν και μηδενιστούν</em>.</div>
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <div><strong>Εφαρμογή συγχρονισμού:</strong> Εκτελεί και αποθηκεύει επίσημα τις αλλαγές που προέκυψαν από τη διαδικασία συγχρονισμού.</div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Βήμα 3: Κύρια Απογραφή & Φίλτρα -->
+    <section class="guide-card">
+      <div class="screenshot-wrapper">
+        <img src="Screenshot_3.png" alt="Οθόνη Κύριας Απογραφής και Φίλτρων">
+      </div>
+      <div class="guide-content">
+        <h3>3. Κύρια Απογραφή & Φίλτρα</h3>
+        <ul class="step-list">
+          <li>
+            <span class="step-num">1</span>
+            <div><strong>Σάρωση / Αναζήτηση:</strong> Πεδίο ταχείας εισαγωγής ή σάρωσης (με χρήση κάμερας Barcode ή αριθμητικής πληκτρολόγησης).</div>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <div><strong>Φίλτρα Brand, Ομάδων & Κατάστασης:</strong> Αναπτυσσόμενα μενού περιορισμού της λίστας ανάλογα με την εταιρεία, την κατηγορία ή την κατάσταση του προϊόντος.</div>
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <div><strong>Ειδικά φίλτρα απογραφής:</strong> Επιλογές γρήγορης απόκρυψης ή προβολής συγκεκριμένων ομάδων (π.χ. Bacardi & Kena).</div>
+          </li>
+          <li>
+            <span class="step-num">4</span>
+            <div><strong>Καθαρισμός φίλτρων:</strong> Επαναφέρει την προβολή στην αρχική πλήρη λίστα.</div>
+          </li>
+          <li>
+            <span class="step-num">5</span>
+            <div><strong>Διαχείριση σειράς (.txt):</strong> Εργαλεία επαναφοράς σειράς σε ID, εξαγωγής ή φόρτωσης της σειράς καταμετρήσεων.</div>
+          </li>
+          <li>
+            <span class="step-num">6</span>
+            <div><strong>Μηδενισμός απογραφής:</strong> Μαζική επαναφορά των μετρήσεων όλων των προϊόντων στο μηδέν.</div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Βήμα 4: Διαχείριση Προϊόντων -->
+    <section class="guide-card">
+      <div class="screenshot-wrapper">
+        <img src="Screenshot_4.png" alt="Οθόνη Διαχείρισης Προϊόντων">
+      </div>
+      <div class="guide-content">
+        <h3>4. Διαχείριση Προϊόντων</h3>
+        <ul class="step-list">
+          <li>
+            <span class="step-num">1</span>
+            <div><strong>+ Νέο προϊόν:</strong> Δίνει τη δυνατότητα δημιουργίας και προσθήκης νέας καταχώρισης απευθείας στη βάση δεδομένων της εφαρμογής.</div>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <div><strong>Πεδίο αναζήτησης:</strong> Επιτρέπει την άμεση ανεύρεση προϊόντων πληκτρολογώντας κριτήρια όπως <strong>ID, barcode ή περιγραφή</strong>.</div>
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <div><strong>Επεξεργασία (Επεξ.):</strong> Κουμπί δίπλα από κάθε προϊόν για την τροποποίηση των στοιχείων του.</div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Βήμα 5: Εξαγωγή Δεδομένων -->
+    <section class="guide-card">
+      <div class="screenshot-wrapper">
+        <img src="Screenshot_5.png" alt="Οθόνη Εξαγωγής Δεδομένων">
+      </div>
+      <div class="guide-content">
+        <h3>5. Εξαγωγή Δεδομένων</h3>
+        <ul class="step-list">
+          <li>
+            <span class="step-num">1</span>
+            <div><strong>Εξαγωγή ενεργών εγγραφών (.xlsx):</strong> Δημιουργεί και αποθηκεύει αρχείο Excel που περιέχει αποκλειστικά τα ενεργά προϊόντα και τα βασικά πεδία τους (ID, Περιγραφή, Ατόφιες, Ρετάλια). Διατίθεται επίσης εξαγωγή σε μορφή CSV ή εξαγωγή όλων των στηλών.</div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      BrewStock · Εφαρμογή Απογραφής Android
+    </footer>
+  </div>
+</body>
+</html>
